@@ -1,0 +1,9 @@
+@import '../css/null.scss';
+
+$body-bgColor: #242a43;
+$defaultTextColor: #fff;
+
+body {
+  background-color: $body-bgColor;
+  color: $defaultTextColor;
+}
