@@ -11,6 +11,11 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .container {
   width: 1024px;
   margin: 0px auto;
@@ -26,4 +31,60 @@ body {
       color: $purple;
     }
   }
+}
+
+// CARD STYLES
+
+.card {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: #fafafa;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  // max-width: 40rem;
+  width: 335px;
+  // min-height: 63rem;
+
+  &--img {
+  }
+
+  &--text {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  &--title {
+    padding-top: 10px;
+    color: #313135;
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  &--sub {
+    padding-top: 2rem;
+    font-weight: 600;
+    font-size: 20px;
+    color: #59595c;
+    margin-bottom: 40px;
+  }
+}
+
+.cta {
+  justify-self: flex-end;
+  color: #f2f2f2;
+  background-color: #0b6e4f;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px;
+  // width: 100%;
+  // max-width: 19rem;
+  text-align: center;
+  box-shadow: 2px 4px 12px rgba(10, 88, 64, 0.2);
+}
+
+.cta:hover {
+  box-shadow: 2px 4px 12px rgba(10, 88, 64, 0.35);
 }
