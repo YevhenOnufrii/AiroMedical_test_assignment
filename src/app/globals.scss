@@ -13,46 +13,71 @@ body {
 
 img {
   width: 100%;
-  height: auto;
+}
+
+.wrapper {
+  overflow: hidden;
 }
 
 .container {
-  width: 1024px;
+  max-width: 1350px;
   margin: 0px auto;
-  height: 100vh;
+  padding: 0 15px;
 }
 
 .header {
   h1 {
     font-size: 30px;
     text-align: center;
-    padding: 10% 0;
+    padding: 5% 0;
     span {
       color: $purple;
     }
   }
 }
 
+// recipes__list
+
+.recipes__list {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 // CARD STYLES
 
 .card {
-  margin: 2rem 0;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
   background-color: #fafafa;
   border: 2px solid rgba(0, 0, 0, 0.1);
   // max-width: 40rem;
-  width: 335px;
+  width: 220px;
   // min-height: 63rem;
+  padding: 15px;
 
   &--img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+    img {
+      height: 200px;
+      width: auto;
+    }
   }
 
   &--text {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    gap: 10px;
+    text-align: center;
+    flex-grow: 1;
   }
 
   &--title {
@@ -63,15 +88,13 @@ img {
   }
 
   &--sub {
-    padding-top: 2rem;
     font-weight: 600;
     font-size: 20px;
     color: #59595c;
-    margin-bottom: 40px;
   }
 }
 
-.cta {
+.card--button {
   justify-self: flex-end;
   color: #f2f2f2;
   background-color: #0b6e4f;
@@ -85,6 +108,6 @@ img {
   box-shadow: 2px 4px 12px rgba(10, 88, 64, 0.2);
 }
 
-.cta:hover {
+.card--button:hover {
   box-shadow: 2px 4px 12px rgba(10, 88, 64, 0.35);
 }
