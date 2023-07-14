@@ -1,9 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 @import '../css/null.scss';
 
 $body-bgColor: #242a43;
 $defaultTextColor: #fff;
+$purple: #514ce2;
 
 body {
   background-color: $body-bgColor;
   color: $defaultTextColor;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  width: 1024px;
+  margin: 0px auto;
+  height: 100vh;
+}
+
+.header {
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    padding: 10% 0;
+    span {
+      color: $purple;
+    }
+  }
 }

@@ -1,3 +1,3 @@
-export default function Wrapper() {
-  return <div className="wrapper"></div>
+export default function Wrapper({ children }) {
+  return <div className="wrapper">{children}</div>
 }
