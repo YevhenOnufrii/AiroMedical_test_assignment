@@ -39,10 +39,14 @@ img {
 // recipes__list
 
 .recipes__list {
-  display: flex;
   gap: 15px;
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.LINK {
+  display: flex;
 }
 
 // CARD STYLES
