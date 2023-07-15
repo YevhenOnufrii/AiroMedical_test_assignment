@@ -5,7 +5,6 @@ import Wrapper from '@/components/Wrapper'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRecipeStore } from '../../store'
-import RecipeDetails from './[id]/page'
 
 function Header() {
   return (
@@ -23,12 +22,16 @@ function RecipesList() {
   return (
     <div className="recipes">
       <ul className="recipes__list">
-        {/* {recipesList.map(product => (
-          <Link className="LINK" key={product.id} href={`${product.id}`}>
+        {recipesList.map(product => (
+          <Link
+            className="LINK"
+            key={product.id}
+            href={{ pathname: `${product.id}`, query: JSON.stringify(product) }}
+          >
             <Recipe {...product} />
           </Link>
-        ))} */}
-        <RecipeDetails />
+        ))}
+        {/* <RecipeDetails /> */}
       </ul>
     </div>
   )
@@ -45,7 +48,7 @@ export default function App() {
     <div>
       <Wrapper>
         <Container>
-          {/* <Header /> */}
+          <Header />
           <RecipesList />
         </Container>
       </Wrapper>
