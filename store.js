@@ -1,10 +1,18 @@
 import { create } from 'zustand'
 
-export const useRecipeStore = create(set => ({
+export const useRecipeStore = create((set, get) => ({
   recipesList: [],
-  // url: 'https://api.punkapi.com/v2/beers?page=1',
-  fetchRecipes: async url => {
-    const response = await fetch(url)
+
+  getRecipe: id =>
+    get().recipesList.reduce((acc, el) => {
+      if (el.id === parseInt(id)) acc = { ...el }
+      return acc
+    }, {}),
+
+  url: 'https://api.punkapi.com/v2/beers?page=1',
+
+  fetchRecipes: async () => {
+    const response = await fetch(get().url)
     const data = await response.json()
     set({ recipesList: data })
     // console.log(data, 'storeJS')
