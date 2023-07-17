@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: {
-    export: {
-      basePath: '/airoMedical_test_assignment',
-    },
+    trailingSlash: true,
+    output: 'export',
+    // export: {
+    //   basePath: '/airoMedical_test_assignment',
+    // },
   },
 }
 
