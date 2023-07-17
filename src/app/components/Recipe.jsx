@@ -1,4 +1,5 @@
-import { useRecipeStore } from '../../store'
+import { useRecipeStore } from '../../../store'
+import './Recipe.scss'
 
 export default function Recipe({ name, isSelected, tagline, image_url, id }) {
   const deleteProduct = useRecipeStore(state => state.deleteProduct)

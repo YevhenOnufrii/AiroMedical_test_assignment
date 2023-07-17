@@ -1,3 +1,4 @@
+import './page.scss'
 export default function RecipeDetails({ searchParams }) {
   const product = JSON.parse(searchParams.data)
 

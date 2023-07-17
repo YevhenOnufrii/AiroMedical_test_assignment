@@ -24,7 +24,6 @@ export const useRecipeStore = create((set, get) => ({
         // delete displayed elements
         set(state => {
           const newList = state.recipesList.filter(recipe => recipe.id !== el.id)
-          console.log(newList, 'newList')
           return { recipesList: newList }
         })
       }
@@ -47,7 +46,6 @@ export const useRecipeStore = create((set, get) => ({
       set({ recipesList: updRecipesList })
       // delete item from render list
       const newList = state.renderList.filter(el => el.id !== id)
-      console.log(newList)
       return { renderList: newList }
     })
   },
