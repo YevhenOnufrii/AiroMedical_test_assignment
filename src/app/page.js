@@ -22,9 +22,11 @@ function RecipesList() {
   const getRenderList = useRecipeStore(state => state.getRenderList)
   const renderList = useRecipeStore(state => state.renderList)
   const selectItemToggle = useRecipeStore(state => state.selectItemToggle)
+  const pageNum = useRecipeStore(state => state.pageNum)
 
   console.log(recipesList, 'recipesList')
   console.log(renderList, 'renderList')
+  console.log(pageNum, 'pageNum')
 
   useEffect(() => {
     getRecipes()
@@ -32,6 +34,10 @@ function RecipesList() {
 
   useEffect(() => {
     getRenderList()
+  }, [recipesList])
+
+  useEffect(() => {
+    if (recipesList.length === 0 && pageNum !== 1) getRecipes()
   }, [recipesList])
 
   const handleClick = (event, prodID) => {
