@@ -1,6 +1,16 @@
-export default function Recipe({ name, tagline, image_url }) {
+import { useRecipeStore } from '../../store'
+
+export default function Recipe({ name, isSelected, tagline, image_url, id }) {
+  const deleteProduct = useRecipeStore(state => state.deleteProduct)
+
+  const handleDelete = (event, id) => {
+    event.preventDefault()
+    event.stopPropagation()
+    deleteProduct(id)
+  }
   return (
-    <li className="recipe__card card">
+    //className="recipe__card card clicked"
+    <li className={isSelected ? 'recipe__card card clicked' : 'recipe__card card'}>
       <div className="card--img">
         <img src={image_url} />
       </div>
@@ -11,6 +21,17 @@ export default function Recipe({ name, tagline, image_url }) {
       <button type="button" className="card--button">
         View Recipe
       </button>
+
+      {isSelected && (
+        <button
+          onClick={e => handleDelete(e, id)}
+          id="delete-btn"
+          type="button"
+          className="card--button button-delete"
+        >
+          DELETE
+        </button>
+      )}
     </li>
   )
 }

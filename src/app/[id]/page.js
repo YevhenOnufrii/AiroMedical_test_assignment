@@ -1,6 +1,5 @@
-export default function RecipeDetails({ params, searchParams }) {
-  const data = Object.keys(searchParams)[0]
-  const product = JSON.parse(data)
+export default function RecipeDetails({ searchParams }) {
+  const product = JSON.parse(searchParams.data)
 
   const { image_url, name, tagline, description, first_brewed, ingredients, food_pairing } = product
 

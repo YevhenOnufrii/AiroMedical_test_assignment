@@ -2,22 +2,68 @@ import { create } from 'zustand'
 
 export const useRecipeStore = create((set, get) => ({
   recipesList: [],
-
-  getRecipe: id =>
-    get().recipesList.reduce((acc, el) => {
-      if (el.id === parseInt(id)) acc = { ...el }
-      return acc
-    }, {}),
-
+  renderList: [],
   url: 'https://api.punkapi.com/v2/beers?page=1',
 
-  fetchRecipes: async () => {
+  getRecipes: async () => {
     const response = await fetch(get().url)
     const data = await response.json()
-    set({ recipesList: data })
-    // console.log(data, 'storeJS')
-    // return data
+    set({ recipesList: [...data] })
   },
+
+  getRenderList: () => {
+    get().recipesList.forEach(el => {
+      if (get().renderList.length < 15)
+        set(state => ({
+          renderList: [...get().renderList, { ...el, isSelected: false }],
+        }))
+    })
+  },
+
+  selectItemToggle: id =>
+    set(state => {
+      const updatedList = state.renderList.map(el =>
+        el.id === id ? { ...el, isSelected: !el.isSelected } : el
+      )
+      return { renderList: updatedList }
+    }),
+
+  deleteProduct: id => {
+    set(state => {
+      const newList = state.renderList.filter(el => el.id !== id)
+      console.log(newList)
+      return { renderList: newList }
+    })
+  },
+
+  // ok
+  // setRecipesList: data =>
+  //   set(state => ({
+  //     recipesList: [...data],
+  //   })),
+
+  // setRenderList: () =>
+  //   set(state => {
+  //     const list = state.recipesList.slice(0, 15)
+  //     console.log(state.recipesList)
+  //     // return { renderList: [...list] }
+  //   }),
+
+  // setRenderList: () => {
+  //   get().renderList.length < 15 && get().renderList.push(...get().recipesList.slice(0, 15))
+  // },
+
+  // getRecipe: id =>
+  //   get().recipesList.reduce((acc, el) => {
+  //     if (el.id === parseInt(id)) acc = { ...el }
+  //     return acc
+  //   }, {}),
+
+  // fetchRecipes: async () => {
+  //   const response = await fetch(get().url)
+  //   const data = await response.json()
+  //   set({ recipesList: data })
+  // },
 }))
 
 const someData = {

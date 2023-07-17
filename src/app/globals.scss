@@ -107,10 +107,20 @@ img {
   font-weight: 400;
   padding: 10px;
   text-align: center;
+  cursor: pointer;
+}
+
+.button-delete {
+  margin-top: 5px;
+  background-color: #ca2626;
 }
 
 .card--button:hover {
   box-shadow: 2px 4px 12px rgba(10, 88, 64, 0.35);
+}
+
+.clicked {
+  background-color: #47b94d;
 }
 
 // product details //
