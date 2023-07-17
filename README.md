@@ -1,6 +1,7 @@
 ## Technologies:
 
 react.js
+
 zustand (https://github.com/pmndrs/zustand)
 
 ## Resources:
