@@ -9,7 +9,6 @@ export default function Recipe({ name, isSelected, tagline, image_url, id }) {
     deleteProduct(id)
   }
   return (
-    //className="recipe__card card clicked"
     <li className={isSelected ? 'recipe__card card clicked' : 'recipe__card card'}>
       <div className="card--img">
         <img src={image_url} />
