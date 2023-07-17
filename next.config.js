@@ -2,7 +2,7 @@
 const nextConfig = {
   output: {
     export: {
-      basePath: '/AiroMedical_test_assignment',
+      basePath: '/airoMedical_test_assignment',
     },
   },
 }
