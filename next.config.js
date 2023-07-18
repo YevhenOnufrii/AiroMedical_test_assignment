@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+    output: {
+      export: {
+        basePath: '/airoMedical_test_assignment/',
+      },
+  },
+  // output: 'export',
   // output: {
   //   // trailingSlash: true,
   //   output: 'export',
