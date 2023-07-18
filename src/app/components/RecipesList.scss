@@ -14,8 +14,11 @@
   }
 
   & .delete-all {
+    position: fixed;
+    top: 0;
+    left: 45%;
     display: block;
-    margin: 0px auto;
+    // margin: 0px auto;
     margin-bottom: 30px;
     padding: 20px 20px;
   }
