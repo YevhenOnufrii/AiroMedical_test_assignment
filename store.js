@@ -41,10 +41,10 @@ export const useRecipeStore = create((set, get) => ({
 
   deleteAllSelected: () => {
     set(state => {
-      // delete item from recipes list
+      // delete items from recipes list
       const updRecipesList = state.recipesList.filter(el => el.isSelected !== true)
       set({ recipesList: updRecipesList })
-      // delete item from render list
+      // delete items from render list
       const newList = state.renderList.filter(el => el.isSelected !== true)
       return { renderList: newList }
     })
