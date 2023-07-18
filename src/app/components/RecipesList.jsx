@@ -32,7 +32,6 @@ export default function RecipesList() {
     const totalSelected = renderList.reduce((acc, el) => (el.isSelected ? (acc += 1) : acc), 0)
     return totalSelected > 1
   }
-  const activeDeleteBtn = isVisibleBtnDeleteAll()
 
   // select item[s]
   const handleClick = (event, prodID) => {
@@ -49,7 +48,7 @@ export default function RecipesList() {
   return (
     <div className="recipes">
       <h2 className="recipes__title">Right-click to select item or left-click for detailed view</h2>
-      {activeDeleteBtn && (
+      {isVisibleBtnDeleteAll() && (
         <button
           onClick={e => handleDeleteAll(e)}
           id="delete-btn"
