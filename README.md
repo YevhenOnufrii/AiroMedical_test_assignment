@@ -1,10 +1,7 @@
- npm run build
-
- npm run start
-
+` npm run build `
+ `npm run start`
 or
-
- npm run dev
+ `npm run dev`
 
 ## Technologies:
 
