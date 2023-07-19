@@ -7,11 +7,19 @@ export const useRecipeStore = create((set, get) => ({
   url: num => `https://api.punkapi.com/v2/beers?page=${num}`,
 
   getRecipes: async () => {
-    const response = await fetch(get().url(get().pageNum))
-    const data = await response.json()
-    set({ recipesList: [...data] })
-    // change page num for next fetch
-    set(state => ({ pageNum: (state.pageNum += 1) }))
+    try {
+      const response = await fetch(get().url(get().pageNum))
+      if (!response.ok) {
+        const msg = `There was an error: ${response.status}, ${response.statusText}`
+        throw new Error(msg)
+      }
+      const data = await response.json()
+      set({ recipesList: [...data] })
+      // change page num for next fetch
+      set(state => ({ pageNum: (state.pageNum += 1) }))
+    } catch (error) {
+      console.log(error.message)
+    }
   },
 
   getRenderList: () => {
